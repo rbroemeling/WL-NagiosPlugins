@@ -1651,7 +1651,7 @@ sub parse_thresholds_list {
    else {
 	foreach $t (@tin) {
 	     $t2 = uc $t;
-	     if ($t2 =~ /^WARN\:(.*)/) {
+	     if ($t =~ /^WARN\:(.*)/i) {
 		    if (defined($self)) {
 			$thres->{'WARN'} = $self->parse_threshold($1);
 		    }
@@ -1659,7 +1659,7 @@ sub parse_thresholds_list {
 			$thres->{'WARN'} = parse_threshold($1);
 		    }
 	     }
-	     elsif ($t2 =~ /^CRIT\:(.*)/) {
+	     elsif ($t =~ /^CRIT\:(.*)/i) {
 		    if (defined($self)) {
 			$thres->{'CRIT'} = $self->parse_threshold($1);
 		    }
